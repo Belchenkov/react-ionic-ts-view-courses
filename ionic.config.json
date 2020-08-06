@@ -1,0 +1,7 @@
+{
+  "name": "react-ionic-ts-courses",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
