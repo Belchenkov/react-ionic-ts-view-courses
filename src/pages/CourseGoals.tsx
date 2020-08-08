@@ -1,18 +1,29 @@
 import React from 'react';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
+import {
+    IonPage,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonButtons,
+    IonBackButton
+} from "@ionic/react";
 
 const CourseGoals: React.FC = () => {
     return (
-        <React.Fragment>
+        <IonPage>
             <IonHeader>
                 <IonToolbar>
+                    <IonButtons slot="start">
+                        <IonBackButton defaultHref="/" />
+                    </IonButtons>
                     <IonTitle>Course Goals</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 <h2>Course Goals Page</h2>
             </IonContent>
-        </React.Fragment>
+        </IonPage>
     );
 };
 
