@@ -10,13 +10,13 @@ import {
 // import { useHistory } from 'react-router-dom';
 
 const Courses: React.FC = () => {
-/*
+    /*
     const history = useHistory();
 
     const changePageHandler = () => {
         history.push('/course-goals');
     };
-*/
+    */
 
     return (
         <IonPage>
