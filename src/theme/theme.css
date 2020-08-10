@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+:root {
+    --ion-toolbar-background: var(--ion-color-primary);
+    --ion-tab-bar-background: var(--ion-color-primary);
+    --ion-tab-bar-color-selected: #fff;
+    --ion-toolbar-color: #fff;
+    --ion-tab-bar-color: var(--ion-color-secondary);
+}
+
+* {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+input,
+ion-button,
+ion-card-content,
+.font-varta {
+    font-family: 'Titillium Web', sans-serif;
+}
