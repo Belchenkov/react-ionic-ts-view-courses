@@ -14,7 +14,7 @@ import {
 } from "@ionic/react";
 // import { useHistory } from 'react-router-dom';
 
-const COURSE_DATA = [
+export const COURSE_DATA = [
     {
         id: 'c1',
         title: 'React - The Complete Guide (incl Hooks, React Router, Redux)'
@@ -52,12 +52,12 @@ const Courses: React.FC = () => {
                         <IonRow key={course.id}>
                             <IonCol size-md="4" offset-md="4">
                                 <IonCard>
-                                    <IonCardContent>
-                                        <h2 className="ion-text-center">{ course.title }</h2>
-                                        <div className="ion-text-center ion-margin-top">
+                                    <IonCardContent className="ion-text-center">
+                                        <h2>{ course.title }</h2>
+                                        <div className="ion-margin-top">
                                             <IonButton
                                                 color="success"
-                                                routerLink=""
+                                                routerLink={`/courses/${course.id}`}
                                             >Details</IonButton>
                                         </div>
                                     </IonCardContent>

@@ -8,8 +8,14 @@ import {
     IonButtons,
     IonBackButton
 } from "@ionic/react";
+import { useParams } from "react-router-dom";
+
+import { COURSE_DATA } from "./Courses";
 
 const CourseGoals: React.FC = () => {
+    const selectCourseId = useParams<{ courseId: string }>().courseId;
+    const selectCourse = COURSE_DATA.find(c => c.id === selectCourseId);
+
     return (
         <IonPage>
             <IonHeader>
@@ -17,11 +23,11 @@ const CourseGoals: React.FC = () => {
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/" />
                     </IonButtons>
-                    <IonTitle>Course Goals</IonTitle>
+                    <IonTitle>{ selectCourse?.title }</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <h2>Course Goals Page</h2>
+                <h2>{ selectCourse?.title }</h2>
             </IonContent>
         </IonPage>
     );
