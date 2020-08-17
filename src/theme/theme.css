@@ -4,7 +4,7 @@
     --ion-toolbar-background: var(--ion-color-primary);
     --ion-tab-bar-background: var(--ion-color-primary);
     --ion-tab-bar-color-selected: #fff;
-    --ion-toolbar-color: #fff;
+    --ion-toolbar-color: var(--ion-color-primary-contrast);
     --ion-tab-bar-color: var(--ion-color-secondary);
 }
 
@@ -19,6 +19,7 @@ ion-card-content,
     font-family: 'Titillium Web', sans-serif;
 }
 
+/*
 ion-back-button {
     --color: var(--ion-color-primary-contrast);
-}
+}*/
