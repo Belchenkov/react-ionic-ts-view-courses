@@ -18,3 +18,7 @@ ion-card-content,
 .font-varta {
     font-family: 'Titillium Web', sans-serif;
 }
+
+ion-back-button {
+    --color: var(--ion-color-primary-contrast);
+}

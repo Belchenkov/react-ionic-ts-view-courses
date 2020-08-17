@@ -6,11 +6,19 @@ import {
     IonTabButton,
     IonIcon,
     IonLabel,
+    IonMenu,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonList,
+    IonContent,
+    IonMenuToggle,
+    IonItem,
     IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
-import { list, trophyOutline } from 'ionicons/icons';
+import { list, options, trophyOutline } from 'ionicons/icons';
 
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -28,12 +36,45 @@ import './theme/theme.css';
 import Courses from "./pages/Courses";
 import CourseGoals from "./pages/CourseGoals";
 import AllGoals from "./pages/AllGoals";
+import Filter from "./pages/Filter";
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+        <IonMenu contentId="main">
+            <IonHeader>
+                <IonToolbar>
+                    <IonTitle>Course Goals</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent>
+                <IonList>
+                    <IonMenuToggle>
+                        <IonItem button routerLink="/all-goals">
+                            <IonIcon
+                                icon={list}
+                                slot="start"
+                            />
+                            <IonLabel>All Goals</IonLabel>
+                        </IonItem>
+                    </IonMenuToggle>
+                    <IonMenuToggle>
+                        <IonItem button routerLink="/filter">
+                            <IonIcon
+                                icon={options}
+                                slot="start"
+                            />
+                            <IonLabel>Filter</IonLabel>
+                        </IonItem>
+                    </IonMenuToggle>
+                </IonList>
+            </IonContent>
+        </IonMenu>
         <IonTabs>
-            <IonRouterOutlet>
+            <IonRouterOutlet id="main">
+                <Route path="/filter" exact>
+                    <Filter />
+                </Route>
                 <Route path="/courses" exact>
                     <Courses />
                 </Route>
