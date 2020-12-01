@@ -20,15 +20,30 @@ import {
 export const COURSE_DATA = [
     {
         id: 'c1',
-        title: 'React - The Complete Guide (incl Hooks, React Router, Redux)'
+        title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
+        enrolled: new Date('12/01/2020'),
+        goals: [
+            { id: 'c1g1', text: 'Finish the course!' },
+            { id: 'c1g2', text: 'Learn a lot!' },
+        ]
     },
     {
         id: 'c2',
-        title: 'React Front To Back'
+        title: 'React Front To Back',
+        enrolled: new Date('12/03/2020'),
+        goals: [
+            { id: 'c2g1', text: 'Finish the course!' },
+            { id: 'c2g2', text: 'Learn a lot!' },
+        ]
     },
     {
         id: 'c3',
-        title: 'Ionic - Build iOS, Android & Web Apps with Ionic'
+        title: 'Ionic - Build iOS, Android & Web Apps with Ionic',
+        enrolled: new Date('12/09/2020'),
+        goals: [
+            { id: 'c3g1', text: 'Finish the course!' },
+            { id: 'c3g2', text: 'Learn a lot!' },
+        ]
     }
 ];
 
@@ -57,7 +72,14 @@ const Courses: React.FC = () => {
                                 <IonCard>
                                     <IonCardHeader>
                                         <IonCardTitle>{ course.title }</IonCardTitle>
-                                        <IonCardSubtitle>Enrolled on 03/12/2020</IonCardSubtitle>
+                                        <IonCardSubtitle>
+                                            Enrolled on
+                                            {course.enrolled.toLocaleString('en-US', {
+                                                year: '2-digit',
+                                                month: '2-digit',
+                                                day: '2-digit'
+                                            })}
+                                        </IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent className="ion-text-center">
 

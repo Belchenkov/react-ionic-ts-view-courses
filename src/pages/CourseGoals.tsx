@@ -6,7 +6,10 @@ import {
     IonTitle,
     IonToolbar,
     IonButtons,
-    IonBackButton
+    IonBackButton,
+    IonList,
+    IonItem,
+    IonLabel
 } from "@ionic/react";
 import { useParams } from "react-router-dom";
 
@@ -27,7 +30,15 @@ const CourseGoals: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <h2>{ selectCourse?.title }</h2>
+                { selectCourse && (
+                    <IonList>
+                        { selectCourse?.goals.map(goal => (
+                            <IonItem key={goal.id} lines="full">
+                                <IonLabel>{goal.text}</IonLabel>
+                            </IonItem>
+                        )) }
+                    </IonList>
+                )}
             </IonContent>
         </IonPage>
     );
