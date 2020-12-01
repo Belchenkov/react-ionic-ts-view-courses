@@ -10,7 +10,10 @@ import {
     IonCardContent,
     IonCard,
     IonButton,
-    IonPage
+    IonPage,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle
 } from "@ionic/react";
 // import { useHistory } from 'react-router-dom';
 
@@ -52,10 +55,15 @@ const Courses: React.FC = () => {
                         <IonRow key={course.id}>
                             <IonCol size-md="4" offset-md="4">
                                 <IonCard>
+                                    <IonCardHeader>
+                                        <IonCardTitle>{ course.title }</IonCardTitle>
+                                        <IonCardSubtitle>Enrolled on 03/12/2020</IonCardSubtitle>
+                                    </IonCardHeader>
                                     <IonCardContent className="ion-text-center">
-                                        <h2>{ course.title }</h2>
-                                        <div className="ion-margin-top">
+
+                                        <div className="ion-margin-top ion-text-right">
                                             <IonButton
+                                                fill="clear"
                                                 color="success"
                                                 routerLink={`/courses/${course.id}`}
                                             >Details</IonButton>
