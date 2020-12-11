@@ -11,9 +11,12 @@ import {
     IonItem,
     IonLabel,
     IonButton,
+    IonItemSliding,
+    IonItemOptions,
+    IonItemOption,
     IonIcon
 } from "@ionic/react";
-import { create } from 'ionicons/icons';
+import { create, trash } from 'ionicons/icons';
 import { useParams } from "react-router-dom";
 
 import { COURSE_DATA } from "./Courses";
@@ -22,7 +25,7 @@ const CourseGoals: React.FC = () => {
     const selectCourseId = useParams<{ courseId: string }>().courseId;
     const selectCourse = COURSE_DATA.find(c => c.id === selectCourseId);
 
-    const deleteItemHandler = () => {
+    const deleteGoalHandler = () => {
         console.log('delete')
     };
 
@@ -45,22 +48,28 @@ const CourseGoals: React.FC = () => {
                 { selectCourse && (
                     <IonList>
                         { selectCourse?.goals.map(goal => (
-                            <IonItem
-                                key={goal.id}
-                                lines="full"
-                                button
-                                onClick={deleteItemHandler}
-                            >
-                                <IonLabel>{goal.text}</IonLabel>
-                                <IonButton
-                                    fill="clear"
-                                    color="dark"
-                                    slot="end"
-                                    onClick={startEditGoalHandler}
-                                >
-                                    <IonIcon slot="icon-only" icon={create} />
-                                </IonButton>
-                            </IonItem>
+                            <IonItemSliding key={goal.id}>
+                                <IonItemOptions side="start">
+                                    <IonItemOption
+                                        color="danger"
+                                        onClick={deleteGoalHandler}
+                                    >
+                                        <IonIcon slot="icon-only" icon={trash} />
+                                    </IonItemOption>
+                                </IonItemOptions>
+                                <IonItem lines="full">
+                                    <IonLabel>{goal.text}</IonLabel>
+                                </IonItem>
+                                <IonItemOptions side="end">
+                                    <IonItemOption
+                                        color="warning"
+                                        onClick={startEditGoalHandler}
+                                    >
+                                        <IonIcon slot="icon-only" icon={create} />
+                                    </IonItemOption>
+                                </IonItemOptions>
+
+                            </IonItemSliding>
                         )) }
                     </IonList>
                 )}
